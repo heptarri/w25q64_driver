@@ -1,32 +1,43 @@
-# _Sample project_
+# W25Q64 Driver for ESP-IDF
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+## Introduction
 
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
+The W25Q64 is a 64M-bit (8M-byte) serial flash memory that provides a storage solution for systems with limited space, pins, and power. It is commonly used in embedded systems for data storage due to its high performance and reliability.
+
+This project provides a driver for interfacing the W25Q64 flash memory with the ESP32 using the ESP-IDF framework. The driver handles the communication between the ESP32 and the W25Q64, allowing for operations such as reading, writing, and erasing data.
+
+### Directory Layout
+
+- `main/`: Contains the main application code that demonstrates the usage of the W25Q64 driver.
+- `components/`: Contains the components code.
+  - `w25q64/`: The upper-level driver implementation for the W25Q64 flash memory.
+    - `include/`: Header files for the driver.
+    - `src/`: Source files for the driver.
+  - `spi_basic/`: The underlying driver of SPI.
+    - `include/`: Header files for the driver.
+    - `src/`: Source files for the driver.
 
 
 
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
+### Getting Started
 
-## Example folder contents
+1. **Setup ESP-IDF**: Follow the [ESP-IDF setup guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html) to configure your development environment.
+2. **Clone the Repository**: Clone this repository to your local machine.
+3. **Build the Project**: Navigate to the project directory and run `idf.py build` to build the project.
+4. **Flash the Project**: Use `idf.py flash` to upload the firmware to your ESP32 board.
+5. **Monitor the Output**: Use `idf.py monitor` to view the output from the ESP32.
 
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
+6. Looking for the main application which demonstrates basic operations with the W25Q64 flash memory. Refer to the code in the `main/` directory for examples on how to use the driver.
 
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
+### API Introduction
 
-Below is short explanation of remaining files in the project folder.
 
-```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.
+
+
+### Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request with your changes.
+
+### Acknowledgments
+
+Special thanks to the Espressif's ESP-IDF library.
